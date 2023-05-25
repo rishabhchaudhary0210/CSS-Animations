@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .block {
+            background: linear-gradient(45deg, black, rgb(27, 27, 27), rgb(48, 48, 48));
+            height: 300px;
+            width: 400px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 500px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 45px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            transition: all 0.8s ease;
+        }
+        .block:hover{
+            background: transparent;
+            letter-spacing: 10px;
+        }
+        .block:hover:before{
+            filter: blur(0);
+            opacity: 0.7;
+        }
+        .block:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 100px;
+            left: 507px;
+            width: 405px;
+            height: 305px;
+            background: linear-gradient(45deg, blue, green, yellow, indigo, orange, red, salmon);
+            background-size: 400%;
+            z-index: -1;
+            animation: glowing 30s linear infinite;
+            filter: blur(7px);
+        }
+        @keyframes glowing {
+            0% {background-position: 0 0;}
+            50% {background-position: 400% 0;}
+            100% {background-position: 0 0;}
+        }
+        .space {
+            height: 3px;
+            width: 100%;
+            background-color: #4e4e4e;
+            border-radius: 10px;
+            color: white;
+        }
+        .box {
+            background: linear-gradient(45deg, black, rgb(27, 27, 27), rgb(48, 48, 48));
+            height: 300px;
+            width: 400px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            margin-left: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .first {
+            height: 200px;
+            width: 200px;
+            background: transparent;
+            position: absolute;
+            border: 10px solid grey;
+            border-left-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotating 5s linear infinite;
+            transition: all 1s ease;
+        }
+        .first .second {
+            height: 150px;
+            width: 150px;
+            background: transparent;
+            border: 10px solid grey;
+            border-top-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: rotating 7s linear infinite;
+        }
+        .first .second .third {
+            height: 100px;
+            width: 100px;
+            background: transparent;
+            border: 10px solid grey;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: rotating 9s linear infinite;
+        }
+        @keyframes rotating {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(359deg);
+            }
+        }
+
+        .ballBox span {
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            margin: 10px 15px;
+            box-shadow: 5px 8px 15px black;
+            animation: balling 2s infinite;
+        }
+
+        .ballBox span:nth-child(1) {
+            background-color: blue;
+            animation-delay: 0.1s;
+        }
+
+        .ballBox span:nth-child(2) {
+            background-color: red;
+            animation-delay: 0.3s;
+        }
+
+        .ballBox span:nth-child(3) {
+            background-color: yellow;
+            animation-delay: 0.5s;
+        }
+
+        .ballBox span:nth-child(4) {
+            background-color: green;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes balling {
+            0% {
+                transform: translateY(30px);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
+
+            100% {
+                transform: translateY(30px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="block">HOVER</div>
+
+    <div class="space"></div>
+
+    <div class="box">
+        <div class="first">
+            <div class="second">
+                <div class="third"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="space"></div>
+
+    <div class="box ballBox">
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
+        <span class="ball"></span>
+    </div>
+
+</body>
+
+</html>
